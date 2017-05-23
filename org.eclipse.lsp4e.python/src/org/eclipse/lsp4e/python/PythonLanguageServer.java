@@ -10,22 +10,32 @@
  *******************************************************************************/
 package org.eclipse.lsp4e.python;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.lsp4e.LanguageServerPlugin;
 import org.eclipse.lsp4e.server.ProcessStreamConnectionProvider;
+import org.osgi.framework.Bundle;
 
 public class PythonLanguageServer extends ProcessStreamConnectionProvider {
 
-	private static final String DEFAULT_SERVER_PATH = System.getProperty("user.home") + "/git/python-language-server";
-	private static final String SERVER_PATH = System
-			.getProperty("org.eclipse.lsp4e.python.PythonLanguageServer.serverPath", DEFAULT_SERVER_PATH);
-
 	public PythonLanguageServer() {
+		Bundle bundle = Activator.getContext().getBundle();
+
 		List<String> commands = new ArrayList<>();
 		commands.add("pyls");
 		setCommands(commands);
-		setWorkingDirectory(SERVER_PATH);
+
+		Path workingDir = Path.EMPTY;
+		try {
+			workingDir = new Path(FileLocator.toFileURL(FileLocator.find(bundle, new Path("server"), null)).getPath());
+		} catch (IOException e) {
+			LanguageServerPlugin.logError(e);
+		}
+		setWorkingDirectory(workingDir.toOSString());
 	}
 
 	@Override
