@@ -27,7 +27,7 @@ script: mvn clean verify
 after_success:
   # Upload the repository to the snapshot update site on Bintray
   # 1. Delete the snapshot version
-  # - curl -X DELETE -ukaloyan-raev:$BINTRAY_KEY https://api.bintray.com/packages/kaloyan-raev/lsp4e-php/update-site/versions/snapshot
+  - curl -X DELETE -umniewrzal:$BINTRAY_KEY https://api.bintray.com/packages/mniewrzal/lsp4e-python/update-site/snapshot
   # 2. Upload the repository.zip to a new version with name "snapshot", unzip it and publish it
-  #- curl -T org.eclipse.lsp4e.php-repository/target/repository.zip -ukaloyan-raev:$BINTRAY_KEY "https://api.bintray.com/content/kaloyan-raev/lsp4e-php/update-site/snapshot/snapshot/repository.zip?publish=1&explode=1"
+  - curl -T org.eclipse.lsp4e.python-repository/target/repository.zip -umniewrzal:$BINTRAY_KEY "https://api.bintray.com/content/mniewrzal/lsp4e-python/update-site/snapshot/repository.zip?publish=1&explode=1"
 
