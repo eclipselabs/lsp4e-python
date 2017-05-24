@@ -14,6 +14,8 @@ Plugin integrates:
 
 Update site: https://dl.bintray.com/mniewrzal/lsp4e-python/snapshot/
 
+Before using follow Python Language Server [installation](https://github.com/palantir/python-language-server#installation) details.   
+
 The update site is automatically updated by the [Travis CI build](https://travis-ci.org/eclipselabs/lsp4e-python) on every new commit to the master branch.
 
 ## Features
