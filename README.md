@@ -1,5 +1,9 @@
 # lsp4e-python
 
+### This repository is now part of https://github.com/eclipselabs/language-servers-for-eclipse
+
+***
+
 [![Build Status](https://travis-ci.org/eclipselabs/lsp4e-python.svg?branch=master)](https://travis-ci.org/eclipselabs/lsp4e-python)
 
 Integration of the Python Language Server with LSP4E. 
