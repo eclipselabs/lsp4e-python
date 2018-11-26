@@ -40,3 +40,13 @@ To use features provided by this plugin just open Python file with **Generic Edi
 ## Screenshots
 
 ![Integration screenshot](images/screenshot.png)
+
+## Development
+
+To develop and debug plugin in Eclipse: 
+1. Open Eclipse for Committers (tested with 2018-09).
+2. Import `lsp4e-python` project. Use menu: `File > Import > Maven > Existing Maven project`
+3. Install dependencies in repository project: `Right click > Run As... > Maven install`
+4. Setup Target platform so it contains dependent plug-ins: `Window > Preferences > Plug-in development > Target platform`. Add new target platform with `Add...` in wizard select `Default`, and then press `Add...` select directory `org.eclipse.lsp4e.python-repository`.
+5. Start Eclipse with `lsp4e-python plugin`: right click on `org.eclipse.lsp4e.python` project then select `Run As... > Eclipse Application`
+
